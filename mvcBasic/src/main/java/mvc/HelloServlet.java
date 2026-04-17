@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+//인사하기 서비스
 
 @WebServlet("/hi")
 public class HelloServlet extends HttpServlet {
