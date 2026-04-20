@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h2>GET/POST</h2>
+	<p>
+		GET 요청 a태그, url주소줄 직접입력, form태그에서 method = "get" 으로 요청하면 브라우저가 get요청으로
+		만들어줌 !!<br> 서버에 간단한 정보의 데이터를 보낼 때 사용함(주소줄에 노출됨), 데이터 형식, 데이터길이
+		제한되어 있음
+	</p>
+
+	<a href="Lotto.do">get 요청</a>
+
+	<form action="Lotto.do" method="get">
+		<button>전송</button>
+	</form>
+
+	<p>
+		Post요청 : 서버의 상태가 바뀌어 작업(등록, 변경, 삭제) <br> form태그에서 method ="post"로
+		요청해야함<br> 사용자의 다양함 데이터를 서버로 보낼 수 있따.<br> 요청바디 담겨서 보내진다. 텍스트,
+		이미지, 영상을 보낼 수 있다.
+	</p>
+
+	<form action="Lotto.do" method="post">
+		<button>전송2</button>
+	</form>
+
+</body>
+</html>
