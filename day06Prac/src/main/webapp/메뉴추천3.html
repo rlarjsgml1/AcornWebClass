@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+function getData() {
+	// $ajax();
+	$.ajax({
+		type:"get",
+		url:"/day06Prac/food5",
+		success:function(data){
+			console.log(data);
+			/*
+			let str="<ul>";
+			
+			for(let i = 0; i < data.length; i++) {
+				let item = data[i];
+				console.log(item);
+				
+				str += "<li>" + item.name + item.price + "</li>";
+			}
+			str += "</ul>";
+			*/
+			let str=`<ul>`;
+			data.forEach(function(item) {
+				console.log(item);
+				str += `<li>${item.name} ${item.price}</li>`;
+			});
+			
+			str += `</ul>`;
+			
+			
+			$("#result").html(str);
+			
+		},
+		error:function(e){
+			console.log(e);
+		}
+	});
+}
+</script>
+</head>
+<body>
+<button onclick="getData()">메뉴 추천하기</button>
+<div id="result">asdfasdf</div>
+</body>
+</html>

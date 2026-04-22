@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+
+function myAjax(info) { // info 객체타입
+	
+	setTimeout(() => {
+		// alert("hi");
+		// 실제 서버와 통신
+		let type = info.type;
+		let dateType = info.dataType;
+		let url = info.url;
+		
+		// 서버와 통신을 수행
+		// 통신 성공, 서버가 준 데이터가 "스파게티"
+		
+		let responseResult = "스파게티";
+		let result = true; // 200ok
+		let errorInfo = "에러 정보";
+		
+		if(result) {
+			info.success(responseResult);
+		} else {
+			info.error(errorInfo);
+		}
+		
+	}, 3000);
+	
+}
+
+function getData() {
+	myAjax({
+		type:"get",
+		dataType: "text",
+		url:"/day06Prac/food0",
+		success: function(data){
+			console.log(data);
+			document.getElementById("result").innerHTML=data;
+		},
+		error: function(e){
+			console.log(e);
+		}
+	});
+}
+
+
+
+</script>
+</head>
+<body>
+<button onclick="getData()">데이터가져오기, 점심추천</button>
+<div id="result"></div>
+</body>
+</html>

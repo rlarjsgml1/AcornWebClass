@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>공부 운세 테스트</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+	body {
+		font-family: "Malgun Gothic", sans-serif;
+		margin: 40px;
+		background: linear-gradient(135deg, #fff8ef, #eef6ff);
+	}
+
+	.wrap {
+		width: 460px;
+		padding: 24px;
+		border: 1px solid #d8dde8;
+		border-radius: 16px;
+		background-color: white;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+	}
+
+	label, input, select, button {
+		display: block;
+		width: 100%;
+		margin-top: 10px;
+	}
+
+	input, select {
+		padding: 10px;
+		box-sizing: border-box;
+	}
+
+	button {
+		padding: 10px;
+		background-color: #0f766e;
+		color: white;
+		border: none;
+		border-radius: 6px;
+		cursor: pointer;
+	}
+
+	.sub-btn {
+		margin-top: 8px;
+		background-color: #334155;
+	}
+
+	#result {
+		margin-top: 20px;
+		padding: 15px;
+		background-color: #f5f7fb;
+		border-radius: 8px;
+		white-space: pre-line;
+	}
+
+	#history {
+		margin-top: 20px;
+		padding-left: 18px;
+	}
+
+	#history li {
+		margin-top: 8px;
+	}
+</style>
+<script>
+	function getStudyFortune() {
+		let requestData = {
+			name: $("#name").val(),
+			subject: $("#subject").val(),
+			focusLevel: Number($("#focusLevel").val()),
+			studyTime: Number($("#studyTime").val())
+		};
+
+		$.ajax({
+			type: "post",
+			url: "/day06Prac/studyFortune",
+			contentType: "application/json",
+			data: JSON.stringify(requestData),
+			success: function(data) {
+				$("#result").text(
+					data.name + "님의 오늘 운세 결과\n"
+					+ "과목: " + data.subject + "\n"
+					+ "집중도: " + data.focusLevel + " / 공부시간: " + data.studyTime + "분\n"
+					+ "운세 점수: " + data.score + "점 (" + data.level + ")\n"
+					+ "운세: " + data.fortune + "\n"
+					+ "추천: " + data.advice + "\n"
+					+ "조회시간: " + data.createdAt
+				);
+				loadHistory();
+			},
+			error: function(err) {
+				console.log(err);
+				$("#result").text("요청 처리 중 오류가 발생했습니다.");
+			}
+		});
+	}
+
+	function loadHistory() {
+		$.ajax({
+			type: "get",
+			url: "/day06Prac/studyFortuneHistory",
+			success: function(list) {
+				let html = "";
+
+				if (!list.length) {
+					html = "<li>아직 조회 내역이 없습니다.</li>";
+				} else {
+					for (let i = 0; i < list.length; i++) {
+						html += "<li>"
+							+ "[" + list[i].createdAt + "] "
+							+ list[i].name + " / "
+							+ list[i].subject + " / "
+							+ list[i].score + "점 / "
+							+ list[i].level
+							+ "</li>";
+					}
+				}
+
+				$("#history").html(html);
+			},
+			error: function(err) {
+				console.log(err);
+			}
+		});
+	}
+</script>
+</head>
+<body>
+	<div class="wrap">
+		<h2>공부 운세 테스트</h2>
+		<p>이름, 과목, 집중도, 공부 시간을 입력하면 오늘의 공부 흐름을 간단히 보여줍니다.</p>
+		<label for="name">이름</label>
+		<input type="text" id="name" placeholder="이름을 입력하세요">
+
+		<label for="subject">과목</label>
+		<input type="text" id="subject" placeholder="예: 자바, SQL, HTML">
+
+		<label for="focusLevel">현재 집중도</label>
+		<select id="focusLevel">
+			<option value="1">1 - 거의 집중 안 됨</option>
+			<option value="2">2 - 조금 피곤함</option>
+			<option value="3" selected>3 - 보통</option>
+			<option value="4">4 - 잘 집중됨</option>
+			<option value="5">5 - 오늘 컨디션 최고</option>
+		</select>
+
+		<label for="studyTime">예상 공부 시간(분)</label>
+		<input type="number" id="studyTime" value="60" min="10">
+
+		<button onclick="getStudyFortune()">운세 보기</button>
+		<button class="sub-btn" onclick="loadHistory()">최근 조회 내역 보기</button>
+		<div id="result">결과가 여기에 표시됩니다.</div>
+		<ul id="history"></ul>
+	</div>
+</body>
+</html>

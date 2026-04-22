@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script>
+
+//동기작업
+/*
+console.log("주문1");
+console.log("커피 받기1");
+console.log("마시기1");
+
+//비동기작업
+console.log("주문2"); 
+setTimeout( function(){ "커피받기2"}  , 2000);
+console.log("마시기2");
+*/
+// 비동기작업의 수행결과를 얻고 싶다면
+// 콜백함수 사용하기
+function 음료주문하기(drinkName, cb) {
+	
+	setTimeout(function(){
+		// 음료 만들기
+		let drink = drinkName + "완성";
+		cb(drink);
+	}, 2000);
+	
+}
+
+음료주문하기("바닐라라떼", function(data){
+	console.log(data + "^^^^^^^^^^");
+});
+
+</script>
+
+</body>
+</html>

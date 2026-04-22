@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+span{
+color:blue;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+function getData() {
+	// alert("sflgkdj");
+	// $.ajax();
+	$.ajax({
+		type:"get",
+		url:"/day06Prac/food2",
+		success:function(data){
+			console.log(data);
+			// $("#result").html("<p>"+data.name+data.price+"</p>")
+			let resultData=`<p> <span>${data.name}</span> <span>${data.price}</span> </p>`;
+			$("#result").html(resultData);
+		},
+		erroe:function(e){
+			console.log(e);
+		}
+	});
+	
+}
+</script>
+</head>
+<body>
+
+<button onclick="getData()">메뉴추천하기</button>
+<div id="result">
+<h2>rrrrrr</h2>
+</div>
+</body>
+</html>
