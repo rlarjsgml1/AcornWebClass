@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script>
+	function changeCssR(){
+		$("#front").css("color","red");
+	}
+
+	function changeCssG(){
+		$("#front").css("color","green");
+	}
+
+	function changeCssB(){
+		$("#front").css("color","blue");
+	}
+
+	function inFontSize(){
+		let currentSize = parseInt($("#front").css("font-size"));
+		let newSize = currentSize + 2; 
+		$("#front").css("font-size", newSize + "px");
+	}
+
+	function deFontSize(){
+		let currentSize = parseInt($("#front").css("font-size"));
+		let newSize = currentSize - 2; 
+		$("#front").css("font-size", newSize + "px");
+	}
+
+	function moveLeft(){
+		$("#front").animate({left: '-=10px'}, 200); 
+	}
+
+	function moveRight(){
+		$("#front").animate({left: '+=10px'}, 200); 
+	}
+</script>
+<style>
+	#front {
+		position: relative;
+	}
+</style>
+</head>
+<body>
+<h2>3개의 버튼은 자바스크립트와 jQuery를 이용하여 클릭 시 div 내용의 칼라가 변경되고 폰트 크기를 동적으로 조절할 수 있으며 요소를 이동할 수 있습니다.</h2>
+<button id="btn1" onclick="changeCssR()">버튼R</button>
+<button id="btn2" onclick="changeCssG()">버튼G</button>
+<button id="btn3" onclick="changeCssB()">버튼B</button>
+<button id="inFontSizeBtn" onclick="inFontSize()">폰트 크기 증가</button>
+<button id="deFontSizeBtn" onclick="deFontSize()">폰트 크기 감소</button>
+<button id="moveLeftBtn" onclick="moveLeft()">왼쪽으로 이동</button>
+<button id="moveRightBtn" onclick="moveRight()">오른쪽으로 이동</button>
+
+<div id="front">front</div>
+</body>
+</html>

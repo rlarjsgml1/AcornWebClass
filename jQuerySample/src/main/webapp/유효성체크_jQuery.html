@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+        $("button").click(function() {
+            let userid = $("#userid").val();
+            if (userid === "") {
+                alert("아이디 확인");
+                $("#userid").focus();
+            }
+        });
+    });
+</script>
+</head>
+<body>
+
+<input type="text" id="userid">
+<button>클릭</button>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+
+<script>
+
+
+function regReview(){
+	let id="7";
+	let content=" 사은품 꼭 주세요 ^^ ^^ !!";
+	
+	 
+	 // Post로 contentType을 생략하면  application/x-www-form-urlencoded
+	 // form에서 method="post"로 보낼때와 같은형식으로 지정됨
+	$.ajax( {
+		
+		  	type: "post",
+	        url: "/ajaxRegSample/reg1",	        
+	        data: { id:id, content:content }  ,    // id=7&content=사은품꼭주세요!!  =>요청바디에 포함된다
+	        success: function(data) {
+	            console.log(data);
+	        },
+	        error: function(err) {
+	            console.error(err);
+	        }
+	}) ;
+}
+
+
+
+</script>
+</head>
+<body>
+
+<button  onclick="regReview()">리뷰등록</button>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+<script>
+	function add1(){		 
+		let  ul  = document.getElementById("fruit_list");
+		let li  = document.createElement("li");
+		li.innerHTML="포도";
+		ul.appendChild(li);	
+	}
+	
+	
+	function add2(){		 
+		$("#fruit_list").append("<li>딸기</li>");
+	}
+	
+</script>
+
+</head>
+<body>
+	
+	<ul  id="fruit_list">		
+	</ul>	
+	
+	<button onclick="add1()"> 과일추가1</button>
+	<button onclick="add2()"> 과일추가2</button>
+
+</body>
+</html>

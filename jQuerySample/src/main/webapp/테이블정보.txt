@@ -1,0 +1,13 @@
+ 
+
+create  table  foodtbl(
+    name varchar2(30) , 
+    price  varchar2(10)  
+);
+
+
+
+insert into foodtbl values( '스파게티' , 12000) ;
+insert into foodtbl values( '모듬초밥' , 20000) ;
+insert into foodtbl values( '수제햄버거세트' ,14000 ) ;
+commit;

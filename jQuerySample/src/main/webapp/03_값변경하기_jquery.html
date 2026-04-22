@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // jQuery를 사용하여 DOM이 준비되었을 때 실행
+            let div = $("#wrap");
+            alert(div.html()); // div의 현재 HTML 내용 출력
+            div.html("변경되었다"); // div의 HTML 내용 변경
+        });
+    </script>
+</head>
+<body>
+    <div id="wrap">aaa</div>
+</body>
+</html>

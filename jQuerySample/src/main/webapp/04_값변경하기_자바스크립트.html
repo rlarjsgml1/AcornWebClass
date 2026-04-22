@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+	 
+	 <script>
+	 //리스너를 추가하는 방법 사용
+	 
+	 	window.addEventListener("load" , function(){
+			 // alert("load 완료");	 		 
+			  let  div= document.getElementById("wrap");
+			  alert( div.innerHTML);
+			  div.innerHTML="변경되었다";  
+		 }); 
+	
+	 </script>
+	
+	
+	
+</head>
+<body>
+	
+	 <div id="wrap">aaa</div>
+	 
+	
+	
+
+</body>
+</html>

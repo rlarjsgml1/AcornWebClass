@@ -1,0 +1,66 @@
+서버로 보낸 HTTP 요청의 바디를 읽어와야 할 경우,
+특히 JSON, XM  데이터를 처리하려면
+HttpServletRequest 객체의 getInputStream() 메서드를 사용해야 함
+파일 업로드, 바이너리 데이터를 클라이언트로 부터 읽어와야 할 경우 사용 
+ 
+ 
+ JSON이나 XML을 받을 때 getInputStream() 또는 getReader() 둘 다 가능.  (문자기반데이터)
+ 
+
+public class MyServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    
+        StringBuilder requestBody = new StringBuilder();
+        
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                requestBody.append(line);
+            }
+        }
+        
+        // requestBody에는 요청 바디의 내용이 문자열로 저장됨
+        System.out.println("Request Body: " + requestBody.toString());
+        
+        // 이후 JSON 처리를 하거나 다른 로직을 수행
+    }
+}
+
+
+
+
+
+
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class MyServlet extends HttpServlet {
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        
+        // 요청 바디의 문자 인코딩 설정 (중요)
+        request.setCharacterEncoding("UTF-8");
+
+        StringBuilder requestBody = new StringBuilder();
+
+        try (BufferedReader reader = request.getReader()) {  // ✅ getReader() 사용
+            String line;
+            while ((line = reader.readLine()) != null) {
+                requestBody.append(line);
+            }
+        }
+
+        System.out.println("Request Body: " + requestBody.toString());
+
+        // 이후 JSON 파싱, 로직 처리 등
+    }
+}
+
+ 

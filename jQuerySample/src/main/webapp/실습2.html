@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+</head>
+<body>
+
+<h2> 3개의 버튼은 자바스크립와 jquery를 이용하여 클릭시  div내용의 칼라가 변경되도록 하기 ! </h2>
+
+<h2>동적으로 이벤트처리하기 자바스크립트 , jquery </h2>
+<button id="btn1" onclick="changeRed()">버튼R</button>
+<button id="btn2" onclick="changeGreen()">버튼G</button>
+<button id="btn3" onclick="changeBlue()">버튼B</button> <br>
+
+<button id="btn4" onclick="changeSizeUp()">폰트크기Up</button> 
+<button id="btn5" onclick="changeSizeDown()">폰트크기Down</button> 
+
+
+<div id="wrap"> 글자 </div>
+
+<script>
+	
+	function changeRed(){
+		let div = document.querySelector("#wrap");
+		div.style.color="red";
+	}
+	
+	function changeGreen(){
+		$("#wrap").css("color","green");
+	}
+	
+	function changeBlue(){
+		$("#wrap").css("color","blue");
+	}
+	
+	function changeSizeUp(){
+		$("#wrap").css("font-size","30px");
+	}
+	
+	function changeSizeDown(){
+		$("#wrap").css("font-size","10px");
+	}	
+	
+	
+</script>
+
+</body>
+</html>

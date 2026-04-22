@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+
+<script>
+
+
+function regReview(){
+	let id="4";
+	let content="사은품 꼭 주세요 !!";
+	
+	
+	//json  객체
+	let sendData  ={ id: id, content: content };
+	console.log(sendData);	
+	
+	
+	//객체로 문자열로 변환해서 보냄 
+	//  "{\"id\": \"1\",  \"content\":  \"사은품주세요\" }"
+	let sendDatastr  = JSON.stringify(sendData);
+	console.log(sendDatastr );
+	
+	$.ajax( {
+		
+		  	type: "post",
+	        url: "/ajaxReview/regReview",
+	        contentType: "application/json", // 보내는 데이터의 type : 요청 본문 (요청바디) 의 데이터 타입을 JSON으로 설정
+	        data: sendDatastr  ,  // 데이터를 JSON 문자열로 변환하여 전송
+	        success: function(data) {
+	            console.log(data);
+	            
+	        },
+	        error: function(err) {
+	            console.error(err);
+	        }
+	}) ;
+}
+
+
+
+</script>
+</head>
+<body>
+
+<button  onclick="regReview()">리뷰등록</button>
+
+
+
+
+</body>
+</html>

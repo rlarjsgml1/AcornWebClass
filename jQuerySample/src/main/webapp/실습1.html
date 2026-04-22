@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+	
+	<script>
+		
+		function changeCss() {
+			alert("빨간색");
+			let div = document.querySelector("#wrap");
+			div.style.color="red";
+		}
+		
+		
+		function changeCss2() {
+			$("#wrap").css("color", "green");
+		}
+		
+		
+		function changeCss3() {
+			$("#wrap").css("font-size", "30px");
+		}
+		
+		function changeCss4() {
+			$("#wrap").css("color", "lightpink");
+		}
+		
+		
+	</script>
+
+	
+
+</head>
+<body>
+	
+	<button id="btn1" onclick="changeCss()">버튼1</button>
+	<button id="btn2" onclick="changeCss2()">버튼2</button>
+	<button id="btn3" onclick="changeCss3()">버튼3</button>
+	<button id="btn4" onclick="changeCss4()">버튼4</button>
+	<div id="wrap">글씨</div>
+		
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+
+<script>
+
+
+function  updateReview(){
+
+	let id="1";
+	let content="글 변경 해유!";
+	
+	let sendData  ={
+			id: id,
+			content :  content
+	};
+	console.log( sendData);
+	
+	let sendDataStr = JSON.stringify( sendData);
+	console.log( sendDataStr);
+	
+	
+	
+	$.ajax(
+			{		
+			 	type: "PUT",
+		        url: "/ajaxReview/updateReview",
+		        contentType: "application/json", // 요청 본문의 데이터 타입을 JSON으로 설정
+		        data: sendDataStr , // 데이터를 JSON 문자열로 변환하여 전송
+		        success: function(data) {
+		            console.log(data);
+		            if( data == "1") alert("성공");
+		        },
+		        error: function(err) {
+		            console.error(err);
+		        }
+	}) ;
+}
+
+
+
+</script>
+</head>
+<body>
+
+<button  onclick="updateReview()">리뷰변경</button>
+
+
+
+
+</body>
+</html>
