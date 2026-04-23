@@ -1,0 +1,21 @@
+로그인
+선택지 2개	-- 선택한 값 세션에 유지 예) 양식 / 중식 / 한식 => 양식 선택 시 
+다음 선택지 2개	-- 선택한 값 세션에 유지 면 / 밥 / 빵 => 면 선택 시
+다음 선택지 2개 -- 선택한 값 세션에 유지 브런치 / 식사 => 식사 선택 시
+다음...
+음식/영화 추천 -- 당신은 양식을 선호하고 면을 좋아하며 식사로 드시기를 원하시니
+ "파스타"가 적당할 것 같습니다.
+ 
+ 서블릿				뷰			리다이렉트		요청매핑		요청방식
+ HomeServlet		home.jsp					/home			get
+ LoginServlet		login.jsp					/login			get
+ 								food1			/login			post
+ LogoutServlet					home			/logout			get
+ 
+ 
+ 
+ FoodOne			food1.jsp					/food1			get
+ FoodTwo			food2.jsp					/food2			get
+ FoodThree			food3.jsp					/food3			get
+ FoodResult			result.jsp	logout			/result			get
+ 
