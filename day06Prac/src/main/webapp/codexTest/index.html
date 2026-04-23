@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오늘의 행운 | codexTest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Pretendard:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="aurora aurora-one"></div>
+  <div class="aurora aurora-two"></div>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">codexTest</p>
+        <h1>오늘의 행운을<br>크게 확인하세요</h1>
+        <p class="hero-text">
+          회원가입과 로그인 후 이름, 생일, 번호를 입력하고
+          <strong>행운의 버튼</strong>을 누르면 오늘의 운세와 행운 지수를 랜덤으로 보여줍니다.
+        </p>
+        <div class="hero-badges">
+          <span>회원가입 가능</span>
+          <span>로그인 가능</span>
+          <span>행운 문장 20개</span>
+        </div>
+      </div>
+
+      <div class="hero-card spotlight">
+        <div class="status-pill" id="loginStatus">로그인되지 않음</div>
+
+        <div class="auth-tabs">
+          <button type="button" class="tab is-active" data-tab="signup">회원가입</button>
+          <button type="button" class="tab" data-tab="login">로그인</button>
+        </div>
+
+        <form id="signupForm" class="auth-form">
+          <label>
+            <span>아이디</span>
+            <input type="text" id="signupId" placeholder="아이디를 입력하세요" required>
+          </label>
+          <label>
+            <span>비밀번호</span>
+            <input type="password" id="signupPassword" placeholder="비밀번호를 입력하세요" required>
+          </label>
+          <button type="submit" class="primary-button">회원가입하기</button>
+        </form>
+
+        <form id="loginForm" class="auth-form hidden">
+          <label>
+            <span>아이디</span>
+            <input type="text" id="loginId" placeholder="가입한 아이디" required>
+          </label>
+          <label>
+            <span>비밀번호</span>
+            <input type="password" id="loginPassword" placeholder="비밀번호" required>
+          </label>
+          <button type="submit" class="primary-button">로그인하기</button>
+        </form>
+
+        <p class="form-message" id="authMessage">회원가입 후 바로 로그인할 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section class="fortune-layout">
+      <article class="profile-card">
+        <div class="card-head">
+          <p class="eyebrow">Lucky Profile</p>
+          <h2>행운 정보 입력</h2>
+        </div>
+
+        <form id="fortuneForm" class="fortune-form">
+          <label>
+            <span>성함</span>
+            <input type="text" id="userName" placeholder="예: 건희" required>
+          </label>
+          <label>
+            <span>생일</span>
+            <input type="date" id="birthday" required>
+          </label>
+          <label>
+            <span>행운 번호</span>
+            <input type="number" id="luckyNumber" min="1" max="99" placeholder="1~99" required>
+          </label>
+
+          <div class="action-row">
+            <button type="submit" class="fortune-button">행운의 버튼</button>
+            <button type="button" id="logoutButton" class="ghost-button">로그아웃</button>
+          </div>
+        </form>
+
+        <p class="form-message" id="fortuneMessage">로그인 후 정보를 입력하면 오늘의 행운이 열립니다.</p>
+      </article>
+
+      <article class="result-card">
+        <div class="result-header">
+          <p class="eyebrow">Today Fortune</p>
+          <h2>오늘의 행운 결과</h2>
+        </div>
+
+        <div class="score-panel">
+          <div>
+            <p class="score-label">행운 지수</p>
+            <p class="score-value"><span id="fortuneScore">--</span><small>점</small></p>
+          </div>
+          <div class="score-ring" id="scoreRing">
+            <div class="score-ring-fill"></div>
+            <span id="fortuneGrade">준비중</span>
+          </div>
+        </div>
+
+        <div class="result-grid">
+          <div class="result-box">
+            <p class="result-title">오늘의 문장</p>
+            <p class="fortune-quote" id="fortuneQuote">로그인하고 행운의 버튼을 눌러주세요.</p>
+          </div>
+          <div class="result-box">
+            <p class="result-title">선택 정보</p>
+            <ul class="info-list">
+              <li><strong>성함</strong><span id="resultName">-</span></li>
+              <li><strong>생일</strong><span id="resultBirthday">-</span></li>
+              <li><strong>행운 번호</strong><span id="resultNumber">-</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="history">
+          <div class="history-head">
+            <p class="result-title">최근 기록</p>
+            <button type="button" id="clearHistoryButton" class="text-button">기록 지우기</button>
+          </div>
+          <div id="historyList" class="history-list">
+            <p class="empty-history">아직 생성된 행운 기록이 없습니다.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
