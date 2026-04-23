@@ -12,6 +12,11 @@ import javax.servlet.http.HttpSession;
 
 
 
+//1.사용자 세션얻어오기
+//	1.1기존에 세션에 cartList 있는 경우
+//    꺼낸 cartList에 장바구니에 추가한 상품 add 하기
+//	1.2새로운 ArrayList cartList를  만들고 상품 add하기
+//	     session에 저장하기 
 @WebServlet("/addCart")
 public class CartAddServlet   extends HttpServlet{
 	
