@@ -21,6 +21,7 @@
 		<input type="text" name="name" readonly="readonly"
 			value="<%=acorn.getName()%>"><br> <input type="text"
 			name="birthday" readonly="readonly" value="<%=acorn.getBirth()%>"><br>
+		<button>수정</button>
 	</form>
 
 </body>
