@@ -13,6 +13,10 @@
 	Acorn acorn = (Acorn) request.getAttribute("acorn");
 	%>
 
+	<% if (acorn == null) { %>
+		<p>No student found.</p>
+		<a href="/day05Prac/home">Home</a>
+	<% } else { %>
 	<form action="/day05Prac/acorn/update" method="post">
 		<input type="text" name="id" readonly="readonly"
 			value="<%=acorn.getId()%>"><br> <input type="text"
@@ -23,6 +27,7 @@
 			name="birthday" readonly="readonly" value="<%=acorn.getBirth()%>"><br>
 		<button>수정</button>
 	</form>
+	<% } %>
 
 </body>
 </html>
