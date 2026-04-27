@@ -1,0 +1,29 @@
+  CREATE SEQUENCE SEQ_ORDER_ID
+    START WITH 1          -- 시작값
+    INCREMENT BY 1        -- 1씩 증가
+    NOCACHE               -- 캐시 안함 (선택)
+    NOCYCLE;              -- 최대값 이후
+    
+  CREATE SEQUENCE SEQ_DETAIL_ID START WITH 1 INCREMENT BY 1 NOCACHE;
+
+
+
+
+CREATE TABLE ORDERS (
+    ORDER_ID        NUMBER(10)        PRIMARY KEY,       -- 주문번호 (PK)
+    CUSTOMER_ID     VARCHAR2(50)      NOT NULL,          -- 고객 ID
+    ORDER_DATE      DATE              DEFAULT SYSDATE,   -- 주문일자
+    TOTAL_AMOUNT    NUMBER(12, 2)     NOT NULL,          -- 총 주문금액
+    STATUS          VARCHAR2(20)      DEFAULT 'READY'    -- 주문상태(READY, COMPLETE, CANCEL 등)
+);
+
+
+
+CREATE TABLE ORDER_DETAIL (
+    DETAIL_ID       NUMBER(10)        PRIMARY KEY,       -- 주문 상세번호 (PK)
+    ORDER_ID        NUMBER(10)        NOT NULL,          -- 주문번호 (FK)
+    PRODUCT_ID      VARCHAR2(50)      NOT NULL,          -- 상품 ID
+    QUANTITY        NUMBER(5)         NOT NULL,          -- 수량
+    PRICE           NUMBER(12, 2)     NOT NULL,          -- 단가
+    SUBTOTAL        NUMBER(12, 2)     NOT NULL           -- 소계 (단가 * 수량)
+);

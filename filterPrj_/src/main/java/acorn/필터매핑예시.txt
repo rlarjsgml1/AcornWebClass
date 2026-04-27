@@ -1,0 +1,34 @@
+
+예시1) 경로기반
+
+/admin/*	         
+
+ =>
+/admin/list	 
+/admin/user/edit	 
+
+
+
+예시2) 확장자기반
+URL 끝이 .do이면 모두 필터 대상이 되는 방식
+
+*.do
+
+/member/list.do	 
+/user/login.do	 
+/product/save.do 
+/hello.do?name=kim
+
+
+예시3)
+@WebFilter("/api/*")
+데이터응답하는 서블릿
+
+
+예시)
+/*
+
+모든 서블릿요청이 적용됨
+(설정부분: 한글설정)
+request.setCharacterEncoding("UTF-8");
+response.setContentType("text/html;charset=UTF-8");	
