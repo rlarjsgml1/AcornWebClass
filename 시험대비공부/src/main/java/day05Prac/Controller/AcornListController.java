@@ -55,6 +55,42 @@ public class AcornListController extends HttpServlet {
 	
 	
 	
+//	
+//	@Override
+//	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//		AcornService service = new AcornService();
+//		ArrayList<Acorn> list = service.getMembers();
+//		
+//		req.setAttribute("list", list);
+//		req.getRequestDispatcher("/WEB-INF/views/acorn/list.jsp").forward(req, resp);
+//	}
+//	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -64,6 +100,10 @@ public class AcornListController extends HttpServlet {
 		req.setAttribute("list", list);
 		req.getRequestDispatcher("/WEB-INF/views/acorn/list.jsp").forward(req, resp);
 	}
+	
+	
+	
+	
 	
 	
 	

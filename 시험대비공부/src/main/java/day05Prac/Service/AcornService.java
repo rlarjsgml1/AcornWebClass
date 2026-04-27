@@ -14,8 +14,6 @@ public class AcornService {
 //		return result;
 //	}
 	
-	
-	
 	AcornDAO dao = new AcornDAO();
 	
 	public ArrayList<Acorn> getMembers(){

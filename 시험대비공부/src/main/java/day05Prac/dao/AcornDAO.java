@@ -31,57 +31,121 @@ public class AcornDAO {
 		return con;
 	}
 
-	public ArrayList<Acorn> selectAll() {
-		ArrayList<Acorn> list = new ArrayList<>();
+//	public ArrayList<Acorn> selectAll() {
+//		ArrayList<Acorn> list = new ArrayList<>();
+//
+//		Connection con = dbcon();
+//		PreparedStatement pst = null;
+//		ResultSet rs = null;
+//
+//		String sql = "select * from acorntbl";
+//
+//		try {
+//			pst = con.prepareStatement(sql);
+//			rs = pst.executeQuery();
+//
+//			while (rs.next()) {
+//				String id = rs.getString(1);
+//				String pw = rs.getString(2);
+//				String name = rs.getString(3);
+//				int point = rs.getInt(4);
+//				java.util.Date birth = rs.getDate(5);
+//
+//				Acorn acorn = new Acorn(id, pw, name, point, birth);
+//				list.add(acorn);
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		} finally {
+//			if (rs != null) {
+//				try {
+//					rs.close();
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//
+//			if (pst != null) {
+//				try {
+//					pst.close();
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//
+//			if (con != null) {
+//				try {
+//					con.close();
+//				} catch (SQLException e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		}
+//
+//		return list;
+//	}
 
+	
+	public ArrayList<Acorn> selectAll(){
+		ArrayList<Acorn> list = new ArrayList<>();
 		Connection con = dbcon();
 		PreparedStatement pst = null;
 		ResultSet rs = null;
-
-		String sql = "select * from acorntbl";
-
+		
+		String sql = "select * from acorntbl order by 5 DESC";
+		
 		try {
 			pst = con.prepareStatement(sql);
 			rs = pst.executeQuery();
-
-			while (rs.next()) {
+			
+			while(rs.next()) {
 				String id = rs.getString(1);
 				String pw = rs.getString(2);
 				String name = rs.getString(3);
 				int point = rs.getInt(4);
 				java.util.Date birth = rs.getDate(5);
-
-				Acorn acorn = new Acorn(id, pw, name, point, birth);
+				
+				Acorn acorn = new Acorn(id,pw,name,point,birth);
 				list.add(acorn);
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-			}
-
-			if (pst != null) {
+			if(pst != null) {
 				try {
 					pst.close();
 				} catch (SQLException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
-
-			if (con != null) {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(con != null) {
 				try {
 					con.close();
 				} catch (SQLException e) {
+					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			}
 		}
-
+		
 		return list;
+	}
+	
+	public static void main(String[] args) {
+		AcornDAO dao = new AcornDAO();
+		ArrayList<Acorn> list = dao.selectAll();
+		for(Acorn acorn: list) {
+			System.out.println(acorn);
+		}
 	}
 }
