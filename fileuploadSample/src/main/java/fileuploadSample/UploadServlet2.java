@@ -30,7 +30,7 @@ public class UploadServlet2 extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 
-        req.getRequestDispatcher("/WEB-INF/views/upload.jsp")
+        req.getRequestDispatcher("/WEB-INF/views/upload2.jsp")
            .forward(req, resp);
     }
 
@@ -69,7 +69,7 @@ public class UploadServlet2 extends HttpServlet {
 
             response.sendRedirect(
                 request.getContextPath()
-                + "/view?fileName=" + encoded
+                + "/view2?fileName=" + encoded
             );
 
         } else {
@@ -79,7 +79,6 @@ public class UploadServlet2 extends HttpServlet {
 
     // 파일명 추출
     private String extractFileName(Part part) {
-
         String contentDisp = part.getHeader("content-disposition");
 
         for (String token : contentDisp.split(";")) {
@@ -92,4 +91,13 @@ public class UploadServlet2 extends HttpServlet {
         }
         return null;
     }
+    
+    /*
+     * 
+     * POST /upload HTTP/1.1
+	   Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+	   Content-Disposition: form-data; name="uploadFile"; filename="photo.jpg"
+	   Content-Type: image/jpeg
+ 
+     */
 }

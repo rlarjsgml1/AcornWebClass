@@ -1,0 +1,6 @@
+CREATE TABLE TravelPlace (
+    id NUMBER PRIMARY KEY,
+    latitude NUMBER(9,6) NOT NULL,
+    longitude NUMBER(9,6) NOT NULL,
+    content VARCHAR2(4000)
+);

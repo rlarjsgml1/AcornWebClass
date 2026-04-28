@@ -86,18 +86,19 @@ public class AcornDAO {
 //	}
 
 	
+	
 	public ArrayList<Acorn> selectAll(){
 		ArrayList<Acorn> list = new ArrayList<>();
+		
 		Connection con = dbcon();
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from acorntbl order by 5 DESC";
+		String sql = "select * from acorntbl";
 		
 		try {
 			pst = con.prepareStatement(sql);
 			rs = pst.executeQuery();
-			
 			while(rs.next()) {
 				String id = rs.getString(1);
 				String pw = rs.getString(2);
@@ -105,7 +106,7 @@ public class AcornDAO {
 				int point = rs.getInt(4);
 				java.util.Date birth = rs.getDate(5);
 				
-				Acorn acorn = new Acorn(id,pw,name,point,birth);
+				Acorn acorn = new Acorn(id, pw, name, point,birth);
 				list.add(acorn);
 			}
 		} catch (SQLException e) {
@@ -120,7 +121,7 @@ public class AcornDAO {
 					e.printStackTrace();
 				}
 			}
-			if(rs != null) {
+			if(rs !=null) {
 				try {
 					rs.close();
 				} catch (SQLException e) {
@@ -137,6 +138,8 @@ public class AcornDAO {
 				}
 			}
 		}
+		
+		
 		
 		return list;
 	}
