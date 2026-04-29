@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+/* 1. Font Import - Pretendard (CDN) */
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+/* 2. Global Variables */
+:root {
+    /* Brand Colors (Black & White Tone) */
+    --color-brand-black: #000000;
+    --color-brand-white: #ffffff;
+    
+    --color-text-main: #1a1a1a;
+    --color-text-sub: #666666;
+    --color-text-muted: #999999;
+
+    --color-border: #eeeeee;
+    --color-bg-gray: #f8f9fa;
+
+    /* Rainbow Palette (For Grass/Points) */
+    --rainbow-red: #ff4d4f;
+    --rainbow-orange: #ffa940;
+    --rainbow-yellow: #ffec3d;
+    --rainbow-green: #73d13d;
+    --rainbow-blue: #40a9ff;
+    --rainbow-indigo: #597ef7;
+    --rainbow-violet: #9254de;
+
+    /* Grass System (Current Active Color) */
+    /* 아래 변수값을 원하는 무지개색 변수로 바꾸면 사이트 전체 잔디 색상이 변경됩니다. */
+    --grass-base: var(--rainbow-green); 
+    
+    --grass-level-0: #ebedf0; /* 데이터 없음 (연회색) */
+    --grass-level-1: #d2f2d4; /* 1단계 - 농도 조절 (예시로 그린 기준) */
+    --grass-level-2: #95e29a; /* 2단계 */
+    --grass-level-3: #4ad352; /* 3단계 */
+    --grass-level-4: #216e39; /* 4단계 */
+
+    /* Typography & Spacing */
+    --font-main: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+
+    /* Typography */
+    --font-size-xs:   12px;
+    --font-size-sm:   14px;
+    --font-size-base: 16px;
+    --font-size-lg:   18px;
+    --font-size-xl:   20px;
+    --font-size-2xl:  24px;
+    --font-size-3xl:  28px;
+
+    /* Spacing */
+    --spacing-xs:  4px;
+    --spacing-sm:  8px;
+    --spacing-md:  16px;
+    --spacing-lg:  24px;
+    --spacing-xl:  40px;
+
+    /* Border Radius */
+    --border-radius-sm:   4px;
+    --border-radius-md:   8px;
+    --border-radius-lg:   16px;
+    --border-radius-full: 9999px;
+
+    /* Breakpoints */
+    --breakpoint-desktop: 1024px;
+}
+
+/* 3. Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-brand-white);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    word-break: keep-all; /* 한글 가독성 향상 */
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-family: inherit;
+}
+
+/* 4. Common Layout */
+.container {
+    width: 100%;
+    max-width: var(--breakpoint-desktop);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* 5. Utility Classes */
+.text-primary { color: var(--color-brand-black); }
+.text-sub { color: var(--color-text-sub); }
+.bg-gray { background-color: var(--color-bg-gray); }
+
+/* 6. Grass Color Example (JS나 인라인 스타일로 제어 가능) */
+.grass-box {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+    background-color: var(--grass-level-0);
+}
