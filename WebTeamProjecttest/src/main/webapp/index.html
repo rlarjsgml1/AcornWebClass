@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Planner</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="사이드 메뉴">
+      <a class="brand" href="#workspace" data-page="workspace" aria-label="Campus Planner 홈">
+        <span class="brand-mark">CP</span>
+        <span>
+          <strong>Campus Planner</strong>
+          <small>팀 작업 관리</small>
+        </span>
+      </a>
+
+      <nav class="nav-list">
+        <button class="nav-item active" type="button" data-page="workspace">
+          <span>내 작업 공간</span>
+          <small>프로젝트와 시리즈</small>
+        </button>
+        <button class="nav-item" type="button" data-page="community">
+          <span>커뮤니티</span>
+          <small>게시글과 검색</small>
+        </button>
+        <button class="nav-item" type="button" data-page="write">
+          <span>게시글 작성</span>
+          <small>새 글 등록</small>
+        </button>
+        <button class="nav-item" type="button" data-page="admin">
+          <span>관리자</span>
+          <small>회원/태그/신고</small>
+        </button>
+      </nav>
+
+      <div class="profile-box">
+        <div class="avatar">김</div>
+        <div>
+          <strong>김하늘</strong>
+          <small>웹 개발 팀</small>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">2026년 1학기 팀 프로젝트</p>
+          <h1 id="pageTitle">내 작업 공간</h1>
+        </div>
+        <div class="top-actions">
+          <button class="ghost-btn" type="button" data-page="login">로그인</button>
+          <button class="primary-btn" type="button" data-page="write">작성</button>
+          <button class="icon-btn" type="button" aria-label="설정">⚙</button>
+        </div>
+      </header>
+
+      <section class="page auth-page hidden" data-view="login">
+        <div class="auth-visual">
+          <p>함께 쓰는 일정과 커뮤니티</p>
+          <h2>팀 작업을 한 화면에서 관리하세요.</h2>
+        </div>
+        <form class="auth-panel">
+          <h2>로그인</h2>
+          <label>아이디<input type="text" placeholder="student01"></label>
+          <label>비밀번호<input type="password" placeholder="비밀번호"></label>
+          <button class="primary-btn full" type="button" data-page="workspace">로그인</button>
+          <button class="ghost-btn full" type="button" data-page="signup">회원가입</button>
+        </form>
+      </section>
+
+      <section class="page auth-page hidden" data-view="signup">
+        <div class="auth-visual signup">
+          <p>간단한 가입</p>
+          <h2>프로필과 관심 태그로 작업 공간을 시작합니다.</h2>
+        </div>
+        <form class="auth-panel">
+          <h2>회원가입</h2>
+          <label>이름<input type="text" placeholder="홍길동"></label>
+          <label>이메일<input type="email" placeholder="campus@example.com"></label>
+          <label>비밀번호<input type="password" placeholder="8자 이상"></label>
+          <button class="primary-btn full" type="button" data-page="workspace">가입 완료</button>
+        </form>
+      </section>
+
+      <section class="page" data-view="workspace">
+        <div class="toolbar">
+          <div class="segmented">
+            <button class="selected" type="button">내 작업</button>
+            <button type="button" data-page="community">커뮤니티</button>
+          </div>
+          <button class="primary-btn" type="button" data-page="write">새 작업 작성</button>
+        </div>
+
+        <div class="workspace-grid">
+          <section class="summary-panel">
+            <h2>사이트 메뉴</h2>
+            <ul>
+              <li>전체 페이지 공유</li>
+              <li>개인 프로필</li>
+              <li>시리즈 목록</li>
+              <li>정보 제공</li>
+            </ul>
+          </section>
+
+          <section class="task-panel">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">진행 중인 작업</p>
+                <h2>이번 주 작업물</h2>
+              </div>
+              <span class="status-pill">8개</span>
+            </div>
+            <div class="task-grid">
+              <article class="task-card">
+                <span class="tag mint">기획</span>
+                <h3>요구사항 정리</h3>
+                <p>로그인, 커뮤니티, 관리자 흐름 점검</p>
+              </article>
+              <article class="task-card">
+                <span class="tag blue">디자인</span>
+                <h3>메인 화면 구성</h3>
+                <p>작업 카드와 커뮤니티 섹션 배치</p>
+              </article>
+              <article class="task-card">
+                <span class="tag violet">프론트</span>
+                <h3>게시글 화면</h3>
+                <p>작성, 상세, 신고 모달 연결</p>
+              </article>
+              <article class="task-card">
+                <span class="tag orange">관리</span>
+                <h3>관리자 버튼</h3>
+                <p>회원, 태그, 신고 관리 바로가기</p>
+              </article>
+              <article class="task-card">
+                <span class="tag mint">테스트</span>
+                <h3>화면 전환 확인</h3>
+                <p>사이드 메뉴와 상단 버튼 동작</p>
+              </article>
+              <article class="task-card">
+                <span class="tag blue">문서</span>
+                <h3>발표 자료</h3>
+                <p>팀 프로젝트 기능 소개 정리</p>
+              </article>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="page hidden" data-view="community">
+        <div class="toolbar">
+          <div class="segmented">
+            <button type="button" data-page="workspace">내 작업</button>
+            <button class="selected" type="button">커뮤니티</button>
+          </div>
+          <button class="ghost-btn" type="button">설정</button>
+        </div>
+
+        <div class="community-layout">
+          <section>
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">인기 게시글</p>
+                <h2>커뮤니티 하이라이트</h2>
+              </div>
+            </div>
+            <div class="popular-grid">
+              <article class="post-card" data-page="detail">
+                <span class="tag mint">스터디</span>
+                <h3>Servlet/JSP 발표 자료 공유</h3>
+                <p>팀별 발표 전 체크하면 좋은 항목을 정리했습니다.</p>
+              </article>
+              <article class="post-card" data-page="detail">
+                <span class="tag blue">질문</span>
+                <h3>DB 연결 오류 해결 방법</h3>
+                <p>드라이버와 context 설정을 다시 확인해 보세요.</p>
+              </article>
+              <article class="post-card" data-page="detail">
+                <span class="tag violet">공지</span>
+                <h3>프로젝트 제출 전 점검표</h3>
+                <p>폴더 구조, 이미지 경로, 실행 화면을 확인합니다.</p>
+              </article>
+              <article class="post-card" data-page="detail">
+                <span class="tag orange">후기</span>
+                <h3>팀 협업 회고</h3>
+                <p>역할 분담과 일정 관리 경험을 공유합니다.</p>
+              </article>
+            </div>
+          </section>
+
+          <aside class="search-panel">
+            <label>게시글 내용 검색<input type="search" placeholder="검색어 입력"></label>
+            <label>사용자 검색<input type="search" placeholder="작성자명 입력"></label>
+            <label>태그 검색<input type="search" placeholder="#JSP #팀플"></label>
+          </aside>
+        </div>
+
+        <section class="board-preview">
+          <h2>커뮤니티</h2>
+          <table>
+            <thead>
+              <tr><th>제목</th><th>작성자</th><th>태그</th><th>조회</th></tr>
+            </thead>
+            <tbody>
+              <tr data-page="detail"><td>게시글 상세 조회 예시</td><td>김하늘</td><td>공지</td><td>128</td></tr>
+              <tr><td>팀 프로젝트 질문 모음</td><td>박서준</td><td>질문</td><td>94</td></tr>
+              <tr><td>프론트 화면 참고 자료</td><td>이유진</td><td>디자인</td><td>76</td></tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+
+      <section class="page hidden" data-view="write">
+        <form class="editor-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">새 게시글</p>
+              <h2>게시글 작성</h2>
+            </div>
+            <button class="primary-btn" type="button" data-page="community">등록</button>
+          </div>
+          <label>제목<input type="text" value="프로젝트 진행 상황 공유"></label>
+          <label>태그<input type="text" value="#JSP #팀프로젝트 #프론트"></label>
+          <label>내용<textarea rows="12">오늘 작업한 화면과 남은 기능을 정리합니다.</textarea></label>
+        </form>
+      </section>
+
+      <section class="page hidden" data-view="detail">
+        <article class="detail-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">게시글 상세 조회</p>
+              <h2>Servlet/JSP 발표 자료 공유</h2>
+            </div>
+            <button class="danger-btn" id="openReport" type="button">신고</button>
+          </div>
+          <p class="post-meta">김하늘 · 2026.04.29 · 조회 128</p>
+          <p class="detail-text">발표 전에 확인할 프로젝트 구조, 화면 연결, 관리자 기능 버튼을 정리했습니다. 댓글로 보완할 부분을 남겨주세요.</p>
+          <section class="comment-box">
+            <h3>댓글</h3>
+            <textarea rows="4" placeholder="댓글을 입력하세요"></textarea>
+            <button class="primary-btn" type="button">댓글 등록</button>
+          </section>
+        </article>
+      </section>
+
+      <section class="page hidden" data-view="admin">
+        <div class="admin-grid">
+          <article class="metric-card"><span>회원</span><strong>124</strong><small>오늘 신규 6명</small></article>
+          <article class="metric-card"><span>게시글</span><strong>318</strong><small>검토 대기 12건</small></article>
+          <article class="metric-card"><span>신고</span><strong>9</strong><small>긴급 2건</small></article>
+        </div>
+        <div class="admin-tabs">
+          <button class="selected" type="button" data-admin="members">회원 관리</button>
+          <button type="button" data-admin="tags">태그 관리</button>
+          <button type="button" data-admin="reports">신고 관리</button>
+          <button type="button" data-admin="posts">게시글 관리</button>
+        </div>
+        <section class="admin-table" id="adminTable" aria-live="polite"></section>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal hidden" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportTitle">
+    <div class="modal-panel">
+      <h2 id="reportTitle">게시글 신고</h2>
+      <label>신고 사유
+        <select>
+          <option>부적절한 내용</option>
+          <option>광고성 게시글</option>
+          <option>개인정보 노출</option>
+        </select>
+      </label>
+      <label>상세 내용<textarea rows="5" placeholder="신고 내용을 입력하세요"></textarea></label>
+      <div class="modal-actions">
+        <button class="ghost-btn" id="closeReport" type="button">취소</button>
+        <button class="danger-btn" type="button">신고 제출</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
